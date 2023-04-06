@@ -13,9 +13,13 @@
 		DA311B5D29DEFB5000E58F50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5B29DEFB5000E58F50 /* Main.storyboard */; };
 		DA311B5F29DEFB5200E58F50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5E29DEFB5200E58F50 /* Assets.xcassets */; };
 		DA311B6229DEFB5200E58F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */; };
+		F0619C2D013C37203143973F /* Pods_VeroDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B503F531B23773F6DF4140 /* Pods_VeroDS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36184A5788AD4F8060E6E904 /* Pods-VeroDS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeroDS.release.xcconfig"; path = "Target Support Files/Pods-VeroDS/Pods-VeroDS.release.xcconfig"; sourceTree = "<group>"; };
+		95B503F531B23773F6DF4140 /* Pods_VeroDS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeroDS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C824D5F24175181A5E867309 /* Pods-VeroDS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeroDS.debug.xcconfig"; path = "Target Support Files/Pods-VeroDS/Pods-VeroDS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA311B5229DEFB5000E58F50 /* VeroDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeroDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA311B5529DEFB5000E58F50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0619C2D013C37203143973F /* Pods_VeroDS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B62B1077102B07CA129A183 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95B503F531B23773F6DF4140 /* Pods_VeroDS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92324744C770A65F21BA0FA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C824D5F24175181A5E867309 /* Pods-VeroDS.debug.xcconfig */,
+				36184A5788AD4F8060E6E904 /* Pods-VeroDS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DA311B4929DEFB5000E58F50 = {
 			isa = PBXGroup;
 			children = (
 				DA311B5429DEFB5000E58F50 /* VeroDS */,
 				DA311B5329DEFB5000E58F50 /* Products */,
+				92324744C770A65F21BA0FA8 /* Pods */,
+				3B62B1077102B07CA129A183 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA311B6629DEFB5200E58F50 /* Build configuration list for PBXNativeTarget "VeroDS" */;
 			buildPhases = (
+				1F29E4CB5F68F924DF1FBA86 /* [CP] Check Pods Manifest.lock */,
 				DA311B4E29DEFB5000E58F50 /* Sources */,
 				DA311B4F29DEFB5000E58F50 /* Frameworks */,
 				DA311B5029DEFB5000E58F50 /* Resources */,
+				4A899D6BF560BB8635B6E562 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F29E4CB5F68F924DF1FBA86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VeroDS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A899D6BF560BB8635B6E562 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeroDS/Pods-VeroDS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeroDS/Pods-VeroDS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VeroDS/Pods-VeroDS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA311B4E29DEFB5000E58F50 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		DA311B6729DEFB5200E58F50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C824D5F24175181A5E867309 /* Pods-VeroDS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		DA311B6829DEFB5200E58F50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36184A5788AD4F8060E6E904 /* Pods-VeroDS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
