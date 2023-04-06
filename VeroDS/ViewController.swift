@@ -8,12 +8,16 @@
 import UIKit
 import Reachability
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var qrBtn: UIButton!
+    @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var searchV: UIView!
     @IBOutlet weak var resultTV: UITableView!
     
     private var accessToken = ""
+    private var responseList: [Response]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,82 @@ class ViewController: UIViewController {
         
         self.resultTV.delegate = self
         self.resultTV.dataSource = self
+        
+        // Search view border and radius
+        searchV.layer.borderColor = UIColor.separator.cgColor
+        searchV.layer.borderWidth = 2.0
+        searchV.layer.cornerRadius = 10
+        
+        searchTF.returnKeyType = .search
+        searchTF.keyboardType = .webSearch
+        searchTF.delegate = self
+        
+        // Close keyboard anywhere
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @IBAction func qrBtnClicked(_ sender: Any) {
+        
+    }
+    
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTF.resignFirstResponder()
+        return true
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        searchData()
+    }
+    
+    func searchData() {
+        guard !searchTF.text!.isEmpty && Response.responseAPI != nil else {
+            return
+        }
+        
+        responseList?.removeAll()
+        
+        // Search of all value
+        for response in Response.responseAPI! {
+            
+            if response.BusinessUnitKey!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.businessUnit!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.colorCode!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.description!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.parentTaskID!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.preplanningBoardQuickSelect!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.task!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.title!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+                
+            } else if response.workingTime!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+                responseList?.append(response)
+            }
+        }
+        
+        if ((responseList?.isEmpty) != nil) {
+            responseList = Response.responseAPI
+        }
+        
+        resultTV.reloadData()
     }
     
     private func loginAPI() {
@@ -151,7 +231,7 @@ class ViewController: UIViewController {
         do {
             let decoder = JSONDecoder()
             Response.responseAPI = try decoder.decode([Response].self, from: data)
-            
+            responseList = Response.responseAPI
         } catch {
             print("Error parsing JSON: \(error.localizedDescription)")
         }
@@ -173,14 +253,14 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Response.responseAPI?.count ?? 0
+        return responseList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = resultTV.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultTableViewCell
 
         var resultText: String?
-        let currentResult = Response.responseAPI![indexPath.row]
+        let currentResult = responseList![indexPath.row]
         
         if currentResult.title != nil { resultText = "\(String(describing: currentResult.title!))\n" }
         if currentResult.task != nil { resultText = "\(String(describing: currentResult.task!))\n" }
@@ -188,6 +268,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textV.text = "\(resultText!)"
         cell.selectionStyle  = .none
+        
+        //TODO: cell background ayarlanacak
         
         return cell
     }
@@ -216,7 +298,7 @@ struct Response: Codable {
  2+ API'den verileri çekmek için "https://api.baubuddy.de/dev/index.php/v1/tasks/select" URL'sine bir GET isteği gönderilecek.
  3+ Alınan verileri uygun bir veri yapısında saklanılacak.
  4+ Verileri liste olarak görüntülemek için bir UITableView oluşturulacak.
- 5- Verileri UITableView'e yüklenilecek ve hücrelerde gerekli özellikleri görüntülenecek.
+ 5+ Verileri UITableView'e yüklenilecek ve hücrelerde gerekli özellikleri görüntülenecek.
  6- Arama işlevselliği için bir arama çubuğu oluşturulacak ve arama kriterlerine göre verileri filtrelenecek.
  7- QR kod tarayıcısını kullanarak arama kriterlerini değiştirmek için bir seçenek eklenecek.
  8- Verileri yenilemek için bir pull-to-refresh işlevselliği eklenilecek.
