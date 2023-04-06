@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchV.layer.borderWidth = 2.0
         searchV.layer.cornerRadius = 10
         
+        searchTF.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)), for: .editingChanged)
         searchTF.returnKeyType = .search
         searchTF.keyboardType = .webSearch
         searchTF.delegate = self
@@ -68,36 +69,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Search of all value
         for response in Response.responseAPI! {
             
-            if response.BusinessUnitKey!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            if response.BusinessUnitKey?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.businessUnit!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.businessUnit?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.colorCode!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.colorCode?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.description!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.description?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.parentTaskID!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.parentTaskID?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.preplanningBoardQuickSelect!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.preplanningBoardQuickSelect?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.task!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.task?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.title!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.title?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
                 
-            } else if response.workingTime!.range(of: searchTF.text!, options: .caseInsensitive) != nil {
+            } else if response.workingTime?.range(of: searchTF.text!, options: .caseInsensitive) != nil {
                 responseList?.append(response)
             }
         }
         
-        if ((responseList?.isEmpty) != nil) {
+        if responseList?.isEmpty == true {
             responseList = Response.responseAPI
         }
         
@@ -299,7 +300,7 @@ struct Response: Codable {
  3+ Alınan verileri uygun bir veri yapısında saklanılacak.
  4+ Verileri liste olarak görüntülemek için bir UITableView oluşturulacak.
  5+ Verileri UITableView'e yüklenilecek ve hücrelerde gerekli özellikleri görüntülenecek.
- 6- Arama işlevselliği için bir arama çubuğu oluşturulacak ve arama kriterlerine göre verileri filtrelenecek.
+ 6+ Arama işlevselliği için bir arama çubuğu oluşturulacak ve arama kriterlerine göre verileri filtrelenecek.
  7- QR kod tarayıcısını kullanarak arama kriterlerini değiştirmek için bir seçenek eklenecek.
  8- Verileri yenilemek için bir pull-to-refresh işlevselliği eklenilecek.
  */
