@@ -158,18 +158,8 @@ class ViewController: UIViewController {
     }
     
     func checkInternetConnection() {
-        let reachability = try! Reachability()
-        
-//        switch reachability.isConnectionRequired() {
-//        case :
-//            print("Wifi bağlantısı mevcut")
-//        case .cellular:
-//            print("Mobil bağlantı mevcut")
-//        case .none:
-//            print("İnternet bağlantısı yok")
-//        }
-        
-        if reachability.isConnectionRequired() {  // offline
+        let reachability = try! Reachability()        
+        if reachability.connection == .unavailable {  // offline
             if let savedData = try? Data(contentsOf: getLocalDataURL()) {
                 processData(data: savedData)
             }

@@ -1,16 +1,16 @@
 PODS:
-  - Reachability (3.2)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
-  - Reachability
+  - ReachabilitySwift (~> 5.0)
 
 SPEC REPOS:
   trunk:
-    - Reachability
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: efecafa770d738099da57eae04f3d950c004b653
+PODFILE CHECKSUM: 62c1ba85d0bb288fac7e018d8bdcf76fe26f1286
 
 COCOAPODS: 1.12.0

@@ -6,5 +6,5 @@ target 'VeroDS' do
   use_frameworks!
 
   # Pods for VeroDS
-  pod 'Reachability' 
+  pod 'ReachabilitySwift', '~> 5.0'
 end
