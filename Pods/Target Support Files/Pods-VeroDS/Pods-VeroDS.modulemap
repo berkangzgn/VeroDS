@@ -1,0 +1,6 @@
+framework module Pods_VeroDS {
+  umbrella header "Pods-VeroDS-umbrella.h"
+
+  export *
+  module * { export * }
+}
