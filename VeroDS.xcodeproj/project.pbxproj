@@ -85,11 +85,11 @@
 				DA311B5529DEFB5000E58F50 /* AppDelegate.swift */,
 				DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */,
 				DA311B5929DEFB5000E58F50 /* ViewController.swift */,
+				DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */,
 				DA311B5B29DEFB5000E58F50 /* Main.storyboard */,
 				DA311B5E29DEFB5200E58F50 /* Assets.xcassets */,
 				DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */,
 				DA311B6329DEFB5200E58F50 /* Info.plist */,
-				DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */,
 			);
 			path = VeroDS;
 			sourceTree = "<group>";
