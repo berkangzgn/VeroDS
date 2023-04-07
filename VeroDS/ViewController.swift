@@ -18,8 +18,10 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
     
     private var accessToken = ""
     private var responseList: [Response]?
+    
     let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     let refreshControl = UIRefreshControl()
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -41,6 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
         searchTF.returnKeyType = .search
         searchTF.keyboardType = .webSearch
         searchTF.delegate = self
+        searchTF.placeholder = "Search VerosDS..."
         
         // Activity indicator opreations
         activityIndicator.center = view.center
@@ -122,6 +125,29 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         searchData()
+    }
+    
+    /// Hex  color operations
+    private func colorFromHex(hexString: String) -> UIColor {
+        let hexString: String       = (hexString as NSString).trimmingCharacters(in: .whitespacesAndNewlines)
+        let scanner                 = Scanner(string: hexString as String)
+        
+        if hexString.hasPrefix("#") {
+            scanner.scanLocation = 1
+        }
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+        
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: 0.35)
     }
     
     /// Search data with searchKey in responseList
@@ -362,6 +388,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         if currentResult.title != nil { resultText = "\(String(describing: currentResult.title!))\n" }
         if currentResult.task != nil { resultText = "\(String(describing: currentResult.task!))\n" }
         if currentResult.description != nil { resultText = "\(String(describing: currentResult.description!))" }
+        if currentResult.colorCode != nil { cell.cellV.backgroundColor = colorFromHex(hexString: currentResult.colorCode!) }
         
         if resultText == "" {
             resultText = "Sorry, there's no information that can be shown right now"
@@ -369,8 +396,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textV.text = "\(resultText!)"
         cell.selectionStyle  = .none
-        
-        //TODO: cell background ayarlanacak
         
         return cell
     }
@@ -393,14 +418,3 @@ struct Response: Codable {
     let wageType: String?
     let workingTime: String?
 }
-
-/*
- 1+ "https://api.baubuddy.de/index.php/login" URL'sine bir POST isteği göndererek API'ye oturum açılacak. Bu, kullanıcının kimlik doğrulaması için gerekli.
- 2+ API'den verileri çekmek için "https://api.baubuddy.de/dev/index.php/v1/tasks/select" URL'sine bir GET isteği gönderilecek.
- 3+ Alınan verileri uygun bir veri yapısında saklanılacak.
- 4+ Verileri liste olarak görüntülemek için bir UITableView oluşturulacak.
- 5+ Verileri UITableView'e yüklenilecek ve hücrelerde gerekli özellikleri görüntülenecek.
- 6+ Arama işlevselliği için bir arama çubuğu oluşturulacak ve arama kriterlerine göre verileri filtrelenecek.
- 7? QR kod tarayıcısını kullanarak arama kriterlerini değiştirmek için bir seçenek eklenecek.
- 8- Verileri yenilemek için bir pull-to-refresh işlevselliği eklenilecek.
- */

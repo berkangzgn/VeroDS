@@ -20,5 +20,7 @@ class ResultTableViewCell: UITableViewCell, UITextViewDelegate {
         textV.isUserInteractionEnabled = false
         textV.font = UIFont(name: "Helvetica-Bold", size: 16)
         textV.delegate = self
+        
+        cellV.layer.cornerRadius = 10
     }
 }
