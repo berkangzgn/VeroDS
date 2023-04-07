@@ -14,42 +14,26 @@
             filePath = "VeroDS/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BBF0452D-F4BF-4706-A487-103AFF8195FE - 8db8c3c1a8ccbc0a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VeroDS.ViewController.checkInternetConnection() -&gt; ()"
-                  moduleName = "VeroDS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Berkan/Developer/VeroDS/VeroDS/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "314"
-                  endingLineNumber = "314"
-                  offsetFromSymbolStart = "257">
-               </Location>
-               <Location
-                  uuid = "BBF0452D-F4BF-4706-A487-103AFF8195FE - 8db8c3c1a8ccbc0a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VeroDS.ViewController.checkInternetConnection() -&gt; ()"
-                  moduleName = "VeroDS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Berkan/Developer/VeroDS/VeroDS/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "314"
-                  endingLineNumber = "314"
-                  offsetFromSymbolStart = "502">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3456F00-1E48-43E4-8015-DE226DCA8FFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeroDS/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "getAPIData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

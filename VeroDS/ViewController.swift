@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
     
     private var accessToken = ""
     private var responseList: [Response]?
+    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    let refreshControl = UIRefreshControl()
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -40,9 +42,17 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
         searchTF.keyboardType = .webSearch
         searchTF.delegate = self
         
+        // Activity indicator opreations
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+        
         // Close keyboard anywhere
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
+        
+        // Pull-to-refresh created
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        resultTV.addSubview(refreshControl)
         
         // QR code operations
         captureSession = AVCaptureSession()
@@ -95,6 +105,13 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
     
     @objc func closeKeyboard() {
         view.endEditing(true)
+    }
+    
+    /// pull-to-refresh operations
+    @objc func refresh(_ sender: UIRefreshControl) {
+        checkInternetConnection()
+        
+        sender.endRefreshing()
     }
     
     /// Textfield operations
@@ -175,6 +192,8 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
         request.allHTTPHeaderFields = headers
         request.httpBody = postData as Data
 
+        self.activityIndicator.startAnimating()
+        
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
             if let error = error {
@@ -206,11 +225,13 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
     /// Get data after login operatiıons
     private func getAPIData() {
         guard let url = URL(string: "https://api.baubuddy.de/dev/index.php/v1/tasks/select") else {
+            self.activityIndicator.stopAnimating()
             print("Invalid URL")
             return
         }
 
         guard let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            self.activityIndicator.stopAnimating()
             return
         }
         
@@ -221,11 +242,14 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
+            
             if let error = error { // If offline
                 if let savedData = try? Data(contentsOf: self.getLocalDataURL()) {
                     // If data saved, read here
                     self.processData(data: savedData)
-                    self.resultTV.reloadData()
                 }
                 
                 print("Error fetching data: \(error.localizedDescription)")
@@ -285,6 +309,11 @@ class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOu
             let decoder = JSONDecoder()
             Response.responseAPI = try decoder.decode([Response].self, from: data)
             responseList = Response.responseAPI
+            
+            DispatchQueue.main.async {
+                self.resultTV.reloadData()
+            }
+            
         } catch {
             print("Error parsing JSON: \(error.localizedDescription)")
         }
