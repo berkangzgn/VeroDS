@@ -3,4 +3,54 @@
    uuid = "527C198E-079C-40FD-A265-9CFE6CC05E71"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBF0452D-F4BF-4706-A487-103AFF8195FE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VeroDS/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BBF0452D-F4BF-4706-A487-103AFF8195FE - 8db8c3c1a8ccbc0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VeroDS.ViewController.checkInternetConnection() -&gt; ()"
+                  moduleName = "VeroDS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Berkan/Developer/VeroDS/VeroDS/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "257">
+               </Location>
+               <Location
+                  uuid = "BBF0452D-F4BF-4706-A487-103AFF8195FE - 8db8c3c1a8ccbc0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VeroDS.ViewController.checkInternetConnection() -&gt; ()"
+                  moduleName = "VeroDS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Berkan/Developer/VeroDS/VeroDS/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "502">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

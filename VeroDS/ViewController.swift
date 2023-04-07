@@ -7,9 +7,9 @@
 
 import UIKit
 import Reachability
+import AVFoundation
 
-class ViewController: UIViewController, UITextFieldDelegate {
-    
+class ViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var qrBtn: UIButton!
     @IBOutlet weak var searchTF: UITextField!
@@ -18,7 +18,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     private var accessToken = ""
     private var responseList: [Response]?
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
     
+    /// Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,16 +43,61 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Close keyboard anywhere
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
+        
+        // QR code operations
+        captureSession = AVCaptureSession()
+
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            captureSession.addInput(input)
+        } catch let error {
+            print(error.localizedDescription)
+            return
+        }
+
+        let output = AVCaptureMetadataOutput()
+        captureSession.addOutput(output)
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.layer.bounds
+        view.layer.addSublayer(previewLayer)
+        captureSession.startRunning()
+        
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
     }
     
     @IBAction func qrBtnClicked(_ sender: Any) {
+        let session = AVCaptureSession()
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
         
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            session.addInput(input)
+        } catch let error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        let output = AVCaptureMetadataOutput()
+        session.addOutput(output)
+        
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.frame = view.layer.bounds
+        view.layer.addSublayer(previewLayer)
+        
+        session.startRunning()
     }
     
     @objc func closeKeyboard() {
         view.endEditing(true)
     }
     
+    /// Textfield operations
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTF.resignFirstResponder()
         return true
@@ -59,7 +107,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchData()
     }
     
-    func searchData() {
+    /// Search data with searchKey in responseList
+    private func searchData() {
         guard !searchTF.text!.isEmpty && Response.responseAPI != nil else {
             return
         }
@@ -105,6 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resultTV.reloadData()
     }
     
+    /// API Login operations
     private func loginAPI() {
         let headers = [
           "Authorization": "Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz",
@@ -153,6 +203,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dataTask.resume()
     }
     
+    /// Get data after login operatiıons
     private func getAPIData() {
         guard let url = URL(string: "https://api.baubuddy.de/dev/index.php/v1/tasks/select") else {
             print("Invalid URL")
@@ -228,6 +279,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return dataFileURL
     }
 
+    /// Read data from local
     private func processData(data: Data) {
         do {
             let decoder = JSONDecoder()
@@ -238,7 +290,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func checkInternetConnection() {
+    /// Internet status check
+    private func checkInternetConnection() {
         let reachability = try! Reachability()        
         if reachability.connection == .unavailable {  // offline
             if let savedData = try? Data(contentsOf: getLocalDataURL()) {
@@ -248,6 +301,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else { // online
             loginAPI()
         }
+    }
+    
+    /// AVCaptureMetadataOutputObjectsDelegate func
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
+            guard let stringValue = readableObject.stringValue else { return }
+
+            searchTF.text = stringValue
+        }
+
+        dismiss(animated: true)
     }
 }
 
@@ -301,6 +368,6 @@ struct Response: Codable {
  4+ Verileri liste olarak görüntülemek için bir UITableView oluşturulacak.
  5+ Verileri UITableView'e yüklenilecek ve hücrelerde gerekli özellikleri görüntülenecek.
  6+ Arama işlevselliği için bir arama çubuğu oluşturulacak ve arama kriterlerine göre verileri filtrelenecek.
- 7- QR kod tarayıcısını kullanarak arama kriterlerini değiştirmek için bir seçenek eklenecek.
+ 7? QR kod tarayıcısını kullanarak arama kriterlerini değiştirmek için bir seçenek eklenecek.
  8- Verileri yenilemek için bir pull-to-refresh işlevselliği eklenilecek.
  */
