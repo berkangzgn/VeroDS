@@ -363,6 +363,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         if currentResult.task != nil { resultText = "\(String(describing: currentResult.task!))\n" }
         if currentResult.description != nil { resultText = "\(String(describing: currentResult.description!))" }
         
+        if resultText == "" {
+            resultText = "Sorry, there's no information that can be shown right now"
+        }
+        
         cell.textV.text = "\(resultText!)"
         cell.selectionStyle  = .none
         
