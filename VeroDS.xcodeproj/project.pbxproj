@@ -13,6 +13,7 @@
 		DA311B5D29DEFB5000E58F50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5B29DEFB5000E58F50 /* Main.storyboard */; };
 		DA311B5F29DEFB5200E58F50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5E29DEFB5200E58F50 /* Assets.xcassets */; };
 		DA311B6229DEFB5200E58F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */; };
+		DA3FF6E629DFAD59003BC264 /* VeroDS.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA3FF6E529DFAD59003BC264 /* VeroDS.gif */; };
 		DADD4A1929DF00A60033AD9C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */; };
 		F0619C2D013C37203143973F /* Pods_VeroDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B503F531B23773F6DF4140 /* Pods_VeroDS.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		DA311B5E29DEFB5200E58F50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA311B6129DEFB5200E58F50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA311B6329DEFB5200E58F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA3FF6E529DFAD59003BC264 /* VeroDS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = VeroDS.gif; sourceTree = "<group>"; };
 		DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 		DA311B4929DEFB5000E58F50 = {
 			isa = PBXGroup;
 			children = (
+				DA3FF6E429DFAD36003BC264 /* Images */,
 				DA311B5429DEFB5000E58F50 /* VeroDS */,
 				DA311B5329DEFB5000E58F50 /* Products */,
 				92324744C770A65F21BA0FA8 /* Pods */,
@@ -92,6 +95,14 @@
 				DA311B6329DEFB5200E58F50 /* Info.plist */,
 			);
 			path = VeroDS;
+			sourceTree = "<group>";
+		};
+		DA3FF6E429DFAD36003BC264 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DA3FF6E529DFAD59003BC264 /* VeroDS.gif */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA311B6229DEFB5200E58F50 /* LaunchScreen.storyboard in Resources */,
+				DA3FF6E629DFAD59003BC264 /* VeroDS.gif in Resources */,
 				DA311B5F29DEFB5200E58F50 /* Assets.xcassets in Resources */,
 				DA311B5D29DEFB5000E58F50 /* Main.storyboard in Resources */,
 			);
