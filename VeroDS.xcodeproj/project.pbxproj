@@ -9,13 +9,27 @@
 /* Begin PBXBuildFile section */
 		DA311B5629DEFB5000E58F50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA311B5529DEFB5000E58F50 /* AppDelegate.swift */; };
 		DA311B5829DEFB5000E58F50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */; };
-		DA311B5A29DEFB5000E58F50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA311B5929DEFB5000E58F50 /* ViewController.swift */; };
+		DA311B5A29DEFB5000E58F50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA311B5929DEFB5000E58F50 /* HomeViewController.swift */; };
 		DA311B5D29DEFB5000E58F50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5B29DEFB5000E58F50 /* Main.storyboard */; };
 		DA311B5F29DEFB5200E58F50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA311B5E29DEFB5200E58F50 /* Assets.xcassets */; };
 		DA311B6229DEFB5200E58F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */; };
-		DA3FF6E629DFAD59003BC264 /* VeroDS.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA3FF6E529DFAD59003BC264 /* VeroDS.gif */; };
 		DADD4A1929DF00A60033AD9C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */; };
 		F0619C2D013C37203143973F /* Pods_VeroDS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B503F531B23773F6DF4140 /* Pods_VeroDS.framework */; };
+		FBA447802A4AD8C400AAC2D1 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4477F2A4AD8C400AAC2D1 /* HomeInteractor.swift */; };
+		FBA447822A4AD8CD00AAC2D1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447812A4AD8CD00AAC2D1 /* HomePresenter.swift */; };
+		FBA447842A4AD8D700AAC2D1 /* HomeEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447832A4AD8D700AAC2D1 /* HomeEntities.swift */; };
+		FBA447862A4AD90F00AAC2D1 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447852A4AD90F00AAC2D1 /* HomeConfigurator.swift */; };
+		FBA447882A4AD93500AAC2D1 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447872A4AD93500AAC2D1 /* Viewable.swift */; };
+		FBA4478A2A4AD94D00AAC2D1 /* Routerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447892A4AD94D00AAC2D1 /* Routerable.swift */; };
+		FBA4478C2A4AD95F00AAC2D1 /* Presenterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4478B2A4AD95F00AAC2D1 /* Presenterable.swift */; };
+		FBA4478E2A4AD97800AAC2D1 /* Interactorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4478D2A4AD97800AAC2D1 /* Interactorable.swift */; };
+		FBA447902A4AD98600AAC2D1 /* TableViewItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4478F2A4AD98600AAC2D1 /* TableViewItemDataSource.swift */; };
+		FBA447922A4AD9EC00AAC2D1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447912A4AD9EC00AAC2D1 /* UIColor+Extension.swift */; };
+		FBA447942A4ADB0200AAC2D1 /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447932A4ADB0200AAC2D1 /* HomeContract.swift */; };
+		FBA447982A4ADC4300AAC2D1 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447972A4ADC4300AAC2D1 /* HomeRouter.swift */; };
+		FBA4479A2A4ADF5800AAC2D1 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA447992A4ADF5800AAC2D1 /* LoginApi.swift */; };
+		FBA4479C2A4AE0B400AAC2D1 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4479B2A4AE0B400AAC2D1 /* Api.swift */; };
+		FBA4479E2A4B658500AAC2D1 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA4479D2A4B658500AAC2D1 /* HomeTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +39,27 @@
 		DA311B5229DEFB5000E58F50 /* VeroDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeroDS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA311B5529DEFB5000E58F50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA311B5929DEFB5000E58F50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA311B5929DEFB5000E58F50 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DA311B5C29DEFB5000E58F50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA311B5E29DEFB5200E58F50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA311B6129DEFB5200E58F50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA311B6329DEFB5200E58F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA3FF6E529DFAD59003BC264 /* VeroDS.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = VeroDS.gif; sourceTree = "<group>"; };
 		DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		FBA4477F2A4AD8C400AAC2D1 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		FBA447812A4AD8CD00AAC2D1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		FBA447832A4AD8D700AAC2D1 /* HomeEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntities.swift; sourceTree = "<group>"; };
+		FBA447852A4AD90F00AAC2D1 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		FBA447872A4AD93500AAC2D1 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
+		FBA447892A4AD94D00AAC2D1 /* Routerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routerable.swift; sourceTree = "<group>"; };
+		FBA4478B2A4AD95F00AAC2D1 /* Presenterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenterable.swift; sourceTree = "<group>"; };
+		FBA4478D2A4AD97800AAC2D1 /* Interactorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactorable.swift; sourceTree = "<group>"; };
+		FBA4478F2A4AD98600AAC2D1 /* TableViewItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewItemDataSource.swift; sourceTree = "<group>"; };
+		FBA447912A4AD9EC00AAC2D1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FBA447932A4ADB0200AAC2D1 /* HomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContract.swift; sourceTree = "<group>"; };
+		FBA447972A4ADC4300AAC2D1 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		FBA447992A4ADF5800AAC2D1 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		FBA4479B2A4AE0B400AAC2D1 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		FBA4479D2A4B658500AAC2D1 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +94,6 @@
 		DA311B4929DEFB5000E58F50 = {
 			isa = PBXGroup;
 			children = (
-				DA3FF6E429DFAD36003BC264 /* Images */,
 				DA311B5429DEFB5000E58F50 /* VeroDS */,
 				DA311B5329DEFB5000E58F50 /* Products */,
 				92324744C770A65F21BA0FA8 /* Pods */,
@@ -85,24 +112,63 @@
 		DA311B5429DEFB5000E58F50 /* VeroDS */ = {
 			isa = PBXGroup;
 			children = (
-				DA311B5529DEFB5000E58F50 /* AppDelegate.swift */,
-				DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */,
-				DA311B5929DEFB5000E58F50 /* ViewController.swift */,
-				DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */,
-				DA311B5B29DEFB5000E58F50 /* Main.storyboard */,
-				DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */,
-				DA311B5E29DEFB5200E58F50 /* Assets.xcassets */,
 				DA311B6329DEFB5200E58F50 /* Info.plist */,
+				DA311B5529DEFB5000E58F50 /* AppDelegate.swift */,
+				DADD4A1829DF00A60033AD9C /* ResultTableViewCell.swift */,
+				DA311B5729DEFB5000E58F50 /* SceneDelegate.swift */,
+				DA311B5E29DEFB5200E58F50 /* Assets.xcassets */,
+				FBA4477C2A4AD81E00AAC2D1 /* Apis */,
+				FBA4477D2A4AD82C00AAC2D1 /* Extension */,
+				DA311B6029DEFB5200E58F50 /* LaunchScreen.storyboard */,
+				FBA4477B2A4AD81500AAC2D1 /* Protocols */,
+				FBA4477A2A4AD80B00AAC2D1 /* Screens */,
 			);
 			path = VeroDS;
 			sourceTree = "<group>";
 		};
-		DA3FF6E429DFAD36003BC264 /* Images */ = {
+		FBA4477A2A4AD80B00AAC2D1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DA3FF6E529DFAD59003BC264 /* VeroDS.gif */,
+				FBA447852A4AD90F00AAC2D1 /* HomeConfigurator.swift */,
+				FBA447832A4AD8D700AAC2D1 /* HomeEntities.swift */,
+				FBA4477F2A4AD8C400AAC2D1 /* HomeInteractor.swift */,
+				FBA447812A4AD8CD00AAC2D1 /* HomePresenter.swift */,
+				DA311B5929DEFB5000E58F50 /* HomeViewController.swift */,
+				DA311B5B29DEFB5000E58F50 /* Main.storyboard */,
+				FBA447932A4ADB0200AAC2D1 /* HomeContract.swift */,
+				FBA447972A4ADC4300AAC2D1 /* HomeRouter.swift */,
+				FBA4479D2A4B658500AAC2D1 /* HomeTableViewDataSource.swift */,
 			);
-			path = Images;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FBA4477B2A4AD81500AAC2D1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FBA447872A4AD93500AAC2D1 /* Viewable.swift */,
+				FBA447892A4AD94D00AAC2D1 /* Routerable.swift */,
+				FBA4478B2A4AD95F00AAC2D1 /* Presenterable.swift */,
+				FBA4478D2A4AD97800AAC2D1 /* Interactorable.swift */,
+				FBA4478F2A4AD98600AAC2D1 /* TableViewItemDataSource.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FBA4477C2A4AD81E00AAC2D1 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				FBA447992A4ADF5800AAC2D1 /* LoginApi.swift */,
+				FBA4479B2A4AE0B400AAC2D1 /* Api.swift */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
+		FBA4477D2A4AD82C00AAC2D1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FBA447912A4AD9EC00AAC2D1 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA311B6229DEFB5200E58F50 /* LaunchScreen.storyboard in Resources */,
-				DA3FF6E629DFAD59003BC264 /* VeroDS.gif in Resources */,
 				DA311B5F29DEFB5200E58F50 /* Assets.xcassets in Resources */,
 				DA311B5D29DEFB5000E58F50 /* Main.storyboard in Resources */,
 			);
@@ -221,9 +286,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA311B5A29DEFB5000E58F50 /* ViewController.swift in Sources */,
+				FBA4479C2A4AE0B400AAC2D1 /* Api.swift in Sources */,
+				DA311B5A29DEFB5000E58F50 /* HomeViewController.swift in Sources */,
 				DA311B5629DEFB5000E58F50 /* AppDelegate.swift in Sources */,
 				DADD4A1929DF00A60033AD9C /* ResultTableViewCell.swift in Sources */,
+				FBA447822A4AD8CD00AAC2D1 /* HomePresenter.swift in Sources */,
+				FBA4478C2A4AD95F00AAC2D1 /* Presenterable.swift in Sources */,
+				FBA447982A4ADC4300AAC2D1 /* HomeRouter.swift in Sources */,
+				FBA447902A4AD98600AAC2D1 /* TableViewItemDataSource.swift in Sources */,
+				FBA4478A2A4AD94D00AAC2D1 /* Routerable.swift in Sources */,
+				FBA447922A4AD9EC00AAC2D1 /* UIColor+Extension.swift in Sources */,
+				FBA447842A4AD8D700AAC2D1 /* HomeEntities.swift in Sources */,
+				FBA447862A4AD90F00AAC2D1 /* HomeConfigurator.swift in Sources */,
+				FBA4479E2A4B658500AAC2D1 /* HomeTableViewDataSource.swift in Sources */,
+				FBA447802A4AD8C400AAC2D1 /* HomeInteractor.swift in Sources */,
+				FBA4479A2A4ADF5800AAC2D1 /* LoginApi.swift in Sources */,
+				FBA447882A4AD93500AAC2D1 /* Viewable.swift in Sources */,
+				FBA447942A4ADB0200AAC2D1 /* HomeContract.swift in Sources */,
+				FBA4478E2A4AD97800AAC2D1 /* Interactorable.swift in Sources */,
 				DA311B5829DEFB5000E58F50 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 424YN83A3C;
+				DEVELOPMENT_TEAM = 8C89698647;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VeroDS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -380,6 +460,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 424YN83A3C;
+				DEVELOPMENT_TEAM = 8C89698647;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VeroDS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -409,6 +490,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
